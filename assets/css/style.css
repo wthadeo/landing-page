@@ -7,13 +7,14 @@
     min-height: 100vh;
 }
 
-.intro-text, .intro-img {
+.intro-text,
+.intro-img {
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
 }
 
-.intro-img img{
+.intro-img img {
     max-width: 100%;
     height: auto;
 }
@@ -85,7 +86,7 @@
 
 .gallery-img img:hover {
     transform: translate(-3%, 3%) scale(1.1) rotate(2deg);
-    
+
 }
 
 .pricing-content {
@@ -120,11 +121,12 @@
     flex: 1 1 32rem;
 }
 
-.form-group label{
+.form-group label {
     display: block;
 }
 
-.form-group input, .form-group textarea {
+.form-group input,
+.form-group textarea {
     border: none;
     background: var(--white-color);
     padding: 1.5rem 2rem;
@@ -153,7 +155,7 @@
     font-size: 1.6rem;
 }
 
-.footer a{
+.footer a {
     color: var(--primary-color);
 }
 
@@ -166,8 +168,30 @@
     padding: 3rem;
 }
 
-@media (max-width: 40rem){
-    .intro-content, .grid {
+.close-menu {
+    display: none;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--white-color);
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: var(--primary-color);
+    transform: rotate(-90deg);
+    border: 0.1rem solid var(--primary-color);
+}
+
+@media (max-width: 40rem) {
+
+    .intro-content,
+    .grid {
         grid-template-columns: 1fr;
     }
 
@@ -182,7 +206,57 @@
         height: 100%;
     }
 
-    .grid-one-content{
+    .grid-one-content {
         display: block;
+    }
+
+    .menu {
+        bottom: 0;
+        text-align: center;
+    }
+
+    .menu-content,
+    .menu-content ul {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .menu-content {
+        height: 100vh;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .close-menu-label::after {
+        content: '≡';
+        position: fixed;
+        z-index: 2;
+        top: 2rem;
+        right: 2rem;
+        background: var(--primary-color);
+        color: var(--white-color);
+        font-size: 3rem;
+        line-height: 3rem;
+        width: 3rem;
+        height: 3rem;
+        text-align: center;
+        padding: 0.5rem;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .close-menu:checked~.menu {
+        display: block;
+    }
+
+    .close-menu:checked~.close-menu-label::after {
+        content: 'x';
+        font-size: 1.8rem;
+    }
+
+    .menu-spacing {
+        display: none;
     }
 }
